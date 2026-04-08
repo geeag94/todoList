@@ -42,21 +42,34 @@
             <div class="logo-section">
                 <div class="logo-postit"></div>
                 <h1>포스트잇</h1>
+                <button id="settings-btn" class="settings-btn" title="설정">⚙️</button>
             </div>
             <div class="stats">
                 <span id="total-count">총 0개</span>
                 <span id="completed-count">완료 0개</span>
             </div>
-            <div class="font-picker">
-                <span class="font-label">글꼴:</span>
-                <select id="font-select" class="font-select">
-                    <option value="noto">Noto Sans KR (기본)</option>
-                    <option value="pretendard">Pretendard</option>
-                    <option value="jua">Jua (귀여운)</option>
-                    <option value="handwriting">Nanum Pen Script (손글씨)</option>
-                </select>
-            </div>
         </header>
+
+        <!-- Settings Panel -->
+        <div id="settings-panel" class="settings-panel hidden">
+            <div class="settings-content">
+                <div class="settings-header">
+                    <h2>설정</h2>
+                    <button id="close-settings-btn" class="close-settings-btn">×</button>
+                </div>
+                <div class="settings-body">
+                    <div class="font-picker">
+                        <span class="font-label">글꼴:</span>
+                        <select id="font-select" class="font-select">
+                            <option value="noto">Noto Sans KR (기본)</option>
+                            <option value="pretendard">Pretendard</option>
+                            <option value="jua">Jua (귀여운)</option>
+                            <option value="handwriting">Nanum Pen Script (손글씨)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="input-section">
             <input type="text" id="todo-input" placeholder="새로운 할 일을 입력하세요..." maxlength="100">

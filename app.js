@@ -30,6 +30,9 @@ class TodoApp {
         this.filterBtns = document.querySelectorAll('.filter-btn');
         this.colorBtns = document.querySelectorAll('.color-btn');
         this.fontSelect = document.getElementById('font-select');
+        this.settingsBtn = document.getElementById('settings-btn');
+        this.settingsPanel = document.getElementById('settings-panel');
+        this.closeSettingsBtn = document.getElementById('close-settings-btn');
     }
     
     bindEvents() {
@@ -66,6 +69,48 @@ class TodoApp {
             this.fontSelect.addEventListener('change', (e) => {
                 this.setFont(e.target.value);
             });
+        }
+        
+        // Settings button
+        if (this.settingsBtn && this.settingsPanel) {
+            this.settingsBtn.addEventListener('click', () => {
+                this.openSettings();
+            });
+            
+            // Close settings when clicking close button
+            if (this.closeSettingsBtn) {
+                this.closeSettingsBtn.addEventListener('click', () => {
+                    this.closeSettings();
+                });
+            }
+            
+            // Close settings when clicking outside
+            this.settingsPanel.addEventListener('click', (e) => {
+                if (e.target === this.settingsPanel) {
+                    this.closeSettings();
+                }
+            });
+            
+            // Close settings with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !this.settingsPanel.classList.contains('hidden')) {
+                    this.closeSettings();
+                }
+            });
+        }
+    }
+    
+    openSettings() {
+        if (this.settingsPanel) {
+            this.settingsPanel.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    
+    closeSettings() {
+        if (this.settingsPanel) {
+            this.settingsPanel.classList.add('hidden');
+            document.body.style.overflow = '';
         }
     }
     
