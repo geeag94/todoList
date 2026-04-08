@@ -5,19 +5,35 @@
 }
 
 /* Font Classes */
-body.font-noto {
+body.font-noto,
+body.font-noto input,
+body.font-noto textarea,
+body.font-noto button,
+body.font-noto select {
     font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-body.font-pretendard {
+body.font-pretendard,
+body.font-pretendard input,
+body.font-pretendard textarea,
+body.font-pretendard button,
+body.font-pretendard select {
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-body.font-jua {
+body.font-jua,
+body.font-jua input,
+body.font-jua textarea,
+body.font-jua button,
+body.font-jua select {
     font-family: 'Jua', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-body.font-handwriting {
+body.font-handwriting,
+body.font-handwriting input,
+body.font-handwriting textarea,
+body.font-handwriting button,
+body.font-handwriting select {
     font-family: 'Nanum Pen Script', cursive;
 }
 
