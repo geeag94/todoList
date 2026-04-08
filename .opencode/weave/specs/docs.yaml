@@ -1,0 +1,102 @@
+spec_name: docs
+project_name: My Project
+created_at: 2026-04-08
+source_docs:
+  - C:\works\todo-list\docs\requirements.md
+requirements:
+  - id: R1
+    description: "[ ] 할 일 추가 (텍스트 입력 + Enter 또는 버튼 클릭)"
+    category: functional
+    priority: must
+    acceptance:
+      - id: AC-R1-1
+        scenario: "[ ] 할 일 추가 (텍스트 입력 + Enter 또는 버튼 클릭) (정상 동작)"
+        type: e2e
+  - id: R2
+    description: "[ ] 할 일 완료/미완료 토글"
+    category: functional
+    priority: must
+    acceptance:
+      - id: AC-R2-1
+        scenario: "[ ] 할 일 완료/미완료 토글 (정상 동작)"
+        type: e2e
+  - id: R3
+    description: "[ ] 필터링 (전체/진행 중/완료)"
+    category: functional
+    priority: must
+    acceptance:
+      - id: AC-R3-1
+        scenario: "[ ] 필터링 (전체/진행 중/완료) (정상 동작)"
+        type: e2e
+  - id: R4
+    description: "[ ] LocalStorage를 사용한 데이터 영속성"
+    category: functional
+    priority: should
+    acceptance:
+      - id: AC-R4-1
+        scenario: "[ ] LocalStorage를 사용한 데이터 영속성 (정상 동작)"
+        type: e2e
+  - id: R5
+    description: "[ ] 반응형 디자인 (모바일/데스크톱 지원)"
+    category: ux
+    priority: should
+    acceptance:
+      - id: AC-R5-1
+        scenario: "[ ] 반응형 디자인 (모바일/데스크톱 지원) (사용자가 문제 없이 사용할 수 있다)"
+        type: manual
+  - id: R6
+    description: "**Frontend**: HTML5, CSS3, Vanilla JavaScript (ES6+)"
+    category: functional
+    priority: could
+    acceptance:
+      - id: AC-R6-1
+        scenario: "**Frontend**: HTML5, CSS3, Vanilla JavaScript (ES6+) (정상 동작)"
+        type: e2e
+  - id: R7
+    description: "**데이터 저장**: LocalStorage"
+    category: functional
+    priority: could
+    acceptance:
+      - id: AC-R7-1
+        scenario: "**데이터 저장**: LocalStorage (정상 동작)"
+        type: e2e
+  - id: R8
+    description: "**빌드 도구**: 없음 (순수 HTML/CSS/JS)"
+    category: functional
+    priority: could
+    acceptance:
+      - id: AC-R8-1
+        scenario: "**빌드 도구**: 없음 (순수 HTML/CSS/JS) (정상 동작)"
+        type: e2e
+  - id: R9
+    description: 깔끔하고 직관적인 인터페이스
+    category: functional
+    priority: could
+    acceptance:
+      - id: AC-R9-1
+        scenario: 깔끔하고 직관적인 인터페이스 (정상 동작)
+        type: e2e
+  - id: R10
+    description: 프로젝트 개요
+    category: functional
+    priority: could
+    acceptance:
+      - id: AC-R10-1
+        scenario: 프로젝트 개요 (정상 동작)
+        type: e2e
+  - id: R11
+    description: 기능 요구사항
+    category: functional
+    priority: could
+    acceptance:
+      - id: AC-R11-1
+        scenario: 기능 요구사항 (정상 동작)
+        type: e2e
+  - id: R12
+    description: UI/UX 요구사항
+    category: ux
+    priority: could
+    acceptance:
+      - id: AC-R12-1
+        scenario: UI/UX 요구사항 (사용자가 문제 없이 사용할 수 있다)
+        type: manual
