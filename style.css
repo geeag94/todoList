@@ -4,6 +4,23 @@
     box-sizing: border-box;
 }
 
+/* Font Classes */
+body.font-noto {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body.font-pretendard {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body.font-jua {
+    font-family: 'Jua', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body.font-handwriting {
+    font-family: 'Nanum Pen Script', cursive;
+}
+
 /* Install Banner */
 .install-banner {
     position: fixed;
@@ -121,6 +138,41 @@ header h1 {
     gap: 30px;
     font-size: 1rem;
     color: #666;
+}
+
+/* Font Picker */
+.font-picker {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.font-label {
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.font-select {
+    padding: 8px 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 180px;
+}
+
+.font-select:hover {
+    border-color: #999;
+}
+
+.font-select:focus {
+    outline: none;
+    border-color: #667eea;
 }
 
 /* 입력 섹션 - 포스트잇 스타일 */
@@ -499,6 +551,16 @@ header h1 {
     .color-btn {
         width: 28px;
         height: 28px;
+    }
+    
+    .font-picker {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .font-select {
+        width: 100%;
+        min-width: auto;
     }
     
     .todo-list {

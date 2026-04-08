@@ -4,7 +4,9 @@ class TodoApp {
         this.todos = [];
         this.currentFilter = 'all';
         this.currentColor = 'yellow';
+        this.currentFont = 'noto';
         this.storageKey = 'todo-list-data';
+        this.fontStorageKey = 'postit-font';
         
         this.init();
     }
@@ -13,6 +15,7 @@ class TodoApp {
         this.cacheDOM();
         this.bindEvents();
         this.loadFromStorage();
+        this.loadFontPreference();
         this.render();
     }
     
@@ -26,6 +29,7 @@ class TodoApp {
         this.completedCount = document.getElementById('completed-count');
         this.filterBtns = document.querySelectorAll('.filter-btn');
         this.colorBtns = document.querySelectorAll('.color-btn');
+        this.fontSelect = document.getElementById('font-select');
     }
     
     bindEvents() {
@@ -56,6 +60,55 @@ class TodoApp {
                 }
             });
         }
+        
+        // Font selector
+        if (this.fontSelect) {
+            this.fontSelect.addEventListener('change', (e) => {
+                this.setFont(e.target.value);
+            });
+        }
+    }
+    
+    loadFontPreference() {
+        try {
+            const savedFont = localStorage.getItem(this.fontStorageKey);
+            if (savedFont) {
+                this.currentFont = savedFont;
+                this.applyFont(savedFont);
+                if (this.fontSelect) {
+                    this.fontSelect.value = savedFont;
+                }
+            }
+        } catch (e) {
+            console.error('Failed to load font preference:', e);
+        }
+    }
+    
+    setFont(font) {
+        console.log('Setting font to:', font);
+        if (!font) return;
+        
+        this.currentFont = font;
+        this.applyFont(font);
+        
+        // Save to localStorage
+        try {
+            localStorage.setItem(this.fontStorageKey, font);
+        } catch (e) {
+            console.error('Failed to save font preference:', e);
+        }
+    }
+    
+    applyFont(font) {
+        const body = document.body;
+        
+        // Remove all font classes
+        body.classList.remove('font-noto', 'font-pretendard', 'font-jua', 'font-handwriting');
+        
+        // Add selected font class
+        body.classList.add(`font-${font}`);
+        
+        console.log('Applied font class:', `font-${font}`);
     }
     
     setColor(color) {

@@ -11,6 +11,14 @@
     
     <title>포스트잇</title>
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Nanum+Pen+Script&family=Jua&display=swap" rel="stylesheet">
+    
+    <!-- Pretendard from CDN -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
     
@@ -35,6 +43,15 @@
             <div class="stats">
                 <span id="total-count">총 0개</span>
                 <span id="completed-count">완료 0개</span>
+            </div>
+            <div class="font-picker">
+                <span class="font-label">글꼴:</span>
+                <select id="font-select" class="font-select">
+                    <option value="noto">Noto Sans KR (기본)</option>
+                    <option value="pretendard">Pretendard</option>
+                    <option value="jua">Jua (귀여운)</option>
+                    <option value="handwriting">Nanum Pen Script (손글씨)</option>
+                </select>
             </div>
         </header>
 
