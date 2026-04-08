@@ -140,10 +140,58 @@ header {
     padding: 20px;
 }
 
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo-postit {
+    width: 50px;
+    height: 50px;
+    background: #fef9c3;
+    border-radius: 2px;
+    box-shadow: 
+        0 3px 6px rgba(0,0,0,0.15),
+        0 2px 4px rgba(0,0,0,0.1);
+    transform: rotate(-5deg);
+    position: relative;
+    clip-path: polygon(
+        0 0,
+        calc(100% - 10px) 0,
+        100% 10px,
+        100% 100%,
+        0 100%
+    );
+}
+
+.logo-postit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(225deg, rgba(0,0,0,0.1) 50%, transparent 50%);
+}
+
+.logo-postit::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
 header h1 {
     font-size: 2.5rem;
     color: #333;
-    margin-bottom: 10px;
+    margin: 0;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
@@ -542,6 +590,19 @@ header h1 {
 @media (max-width: 600px) {
     body {
         padding: 10px;
+    }
+    
+    .logo-section {
+        gap: 10px;
+    }
+    
+    .logo-postit {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-postit::after {
+        font-size: 20px;
     }
     
     header h1 {
