@@ -427,6 +427,29 @@ header h1 {
     background: white;
     width: 100%;
     margin-bottom: 12px;
+    color: #333;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+}
+
+/* Date input placeholder styling */
+.date-input::-webkit-input-placeholder {
+    color: #999;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
 }
 
 .color-picker {
@@ -718,10 +741,12 @@ header h1 {
     }
     
     .input-section {
-        padding: 25px 20px 20px 20px;
+        padding: 20px 15px 15px 15px;
         transform: none;
         clip-path: none;
-        border-radius: 4px;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .input-section::before,
@@ -729,13 +754,37 @@ header h1 {
         display: none;
     }
     
+    #todo-input {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 16px; /* iOS zoom 방지 */
+        padding: 12px;
+    }
+    
+    .date-input {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 16px; /* iOS zoom 방지 */
+        padding: 12px;
+        margin-bottom: 12px;
+        -webkit-appearance: none; /* iOS 기본 스타일 제거 */
+        appearance: none;
+        background-color: white;
+    }
+    
+    .color-picker {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
     .color-options {
         flex-wrap: wrap;
+        justify-content: center;
     }
     
     .color-btn {
-        width: 28px;
-        height: 28px;
+        width: 32px;
+        height: 32px;
     }
     
     .font-picker {
