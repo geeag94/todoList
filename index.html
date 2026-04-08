@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#fef9c3">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="포스트잇">
+    <meta name="description" content="간단하고 예쁜 포스트잇 메모 앱">
+    
+    <title>포스트잇</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="icons/icon-192x192.svg">
+    <link rel="icon" type="image/svg+xml" sizes="192x192" href="icons/icon-192x192.svg">
+    <link rel="icon" type="image/svg+xml" sizes="512x512" href="icons/icon-512x512.svg">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Install Prompt Banner -->
+    <div id="install-banner" class="install-banner hidden">
+        <span>📱 홈 화면에 추가하고 앱처럼 사용하세요!</span>
+        <button id="install-btn">설치</button>
+        <button id="close-install-btn">×</button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>📝 포스트잇</h1>
+            <div class="stats">
+                <span id="total-count">총 0개</span>
+                <span id="completed-count">완료 0개</span>
+            </div>
+        </header>
+
+        <div class="input-section">
+            <input type="text" id="todo-input" placeholder="새로운 할 일을 입력하세요..." maxlength="100">
+            <input type="date" id="todo-date" class="date-input">
+            <div class="color-picker">
+                <span class="color-label">색상:</span>
+                <div class="color-options">
+                    <button class="color-btn yellow active" data-color="yellow" title="노랑"></button>
+                    <button class="color-btn red" data-color="red" title="빨강"></button>
+                    <button class="color-btn orange" data-color="orange" title="주황"></button>
+                    <button class="color-btn green" data-color="green" title="초록"></button>
+                    <button class="color-btn blue" data-color="blue" title="파랑"></button>
+                    <button class="color-btn purple" data-color="purple" title="보라"></button>
+                    <button class="color-btn pink" data-color="pink" title="분홍"></button>
+                </div>
+            </div>
+            <button id="add-btn">추가</button>
+        </div>
+
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">전체</button>
+            <button class="filter-btn" data-filter="active">진행 중</button>
+            <button class="filter-btn" data-filter="completed">완료</button>
+        </div>
+
+        <ul id="todo-list" class="todo-list">
+            <!-- 할 일 항목들이 여기에 추가됩니다 -->
+        </ul>
+
+        <div id="empty-message" class="empty-message">
+            📝 포스트잇이 없습니다.<br>새로운 포스트잇을 추가해보세요!
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        // Install Prompt
+        let deferredPrompt;
+        const installBanner = document.getElementById('install-banner');
+        const installBtn = document.getElementById('install-btn');
+        const closeInstallBtn = document.getElementById('close-install-btn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBanner.classList.remove('hidden');
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    console.log('User accepted install');
+                }
+                deferredPrompt = null;
+                installBanner.classList.add('hidden');
+            }
+        });
+
+        closeInstallBtn.addEventListener('click', () => {
+            installBanner.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
