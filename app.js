@@ -129,15 +129,15 @@ class TodoApp {
         const inputSection = document.querySelector('.input-section');
         if (inputSection) {
             const colorMap = {
-                'yellow': '#fef9c3',
-                'red': '#fecaca',
-                'orange': '#fed7aa',
-                'green': '#bbf7d0',
-                'blue': '#bfdbfe',
-                'purple': '#e9d5ff',
-                'pink': '#fbcfe8'
+                'red': 'linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%)',
+                'orange': 'linear-gradient(135deg, #ffa502 0%, #ffc048 100%)',
+                'yellow': 'linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%)',
+                'green': 'linear-gradient(135deg, #55efc4 0%, #00b894 100%)',
+                'blue': 'linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)',
+                'indigo': 'linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%)',
+                'purple': 'linear-gradient(135deg, #fd79a8 0%, #e84393 100%)'
             };
-            inputSection.style.background = colorMap[color] || '#fef9c3';
+            inputSection.style.background = colorMap[color] || colorMap['yellow'];
         }
         
         console.log('Current color is now:', this.currentColor);

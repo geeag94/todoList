@@ -178,14 +178,13 @@ header {
 }
 
 .logo-postit::after {
-    content: '✓';
+    content: '✎';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 24px;
-    color: #333;
-    font-weight: bold;
+    font-size: 28px;
+    color: #555;
 }
 
 header h1 {
@@ -369,14 +368,14 @@ header h1 {
     font-weight: bold;
 }
 
-/* 무지개 색상 */
-.color-btn.yellow { background: #fef9c3; }
-.color-btn.red { background: #fecaca; }
-.color-btn.orange { background: #fed7aa; }
-.color-btn.green { background: #bbf7d0; }
-.color-btn.blue { background: #bfdbfe; }
-.color-btn.purple { background: #e9d5ff; }
-.color-btn.pink { background: #fbcfe8; }
+/* 무지개 색상 - 빨주노초파남보 */
+.color-btn.red { background: linear-gradient(135deg, #ff6b6b, #ee5a5a); box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4); }
+.color-btn.orange { background: linear-gradient(135deg, #ffa502, #ff8c00); box-shadow: 0 2px 8px rgba(255, 165, 2, 0.4); }
+.color-btn.yellow { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); box-shadow: 0 2px 8px rgba(253, 203, 110, 0.4); }
+.color-btn.green { background: linear-gradient(135deg, #55efc4, #00b894); box-shadow: 0 2px 8px rgba(0, 184, 148, 0.4); }
+.color-btn.blue { background: linear-gradient(135deg, #74b9ff, #0984e3); box-shadow: 0 2px 8px rgba(116, 185, 255, 0.4); }
+.color-btn.indigo { background: linear-gradient(135deg, #a29bfe, #6c5ce7); box-shadow: 0 2px 8px rgba(162, 155, 254, 0.4); }
+.color-btn.purple { background: linear-gradient(135deg, #fd79a8, #e84393); box-shadow: 0 2px 8px rgba(253, 121, 168, 0.4); }
 
 #add-btn {
     width: 100%;
@@ -493,14 +492,14 @@ header h1 {
     z-index: 10;
 }
 
-/* 포스트잇 색상들 */
-.todo-item.yellow { background: #fef9c3; transform: rotate(1deg); }
-.todo-item.red { background: #fecaca; transform: rotate(-1deg); }
-.todo-item.orange { background: #fed7aa; transform: rotate(0.5deg); }
-.todo-item.green { background: #bbf7d0; transform: rotate(-0.5deg); }
-.todo-item.blue { background: #bfdbfe; transform: rotate(1.5deg); }
-.todo-item.purple { background: #e9d5ff; transform: rotate(-1.5deg); }
-.todo-item.pink { background: #fbcfe8; transform: rotate(0.8deg); }
+/* 포스트잇 색상들 - 무지개 (빨주노초파남보) */
+.todo-item.red { background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%); transform: rotate(-1deg); }
+.todo-item.orange { background: linear-gradient(135deg, #ffa502 0%, #ffc048 100%); transform: rotate(0.5deg); }
+.todo-item.yellow { background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); transform: rotate(1deg); }
+.todo-item.green { background: linear-gradient(135deg, #55efc4 0%, #00b894 100%); transform: rotate(-0.5deg); }
+.todo-item.blue { background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); transform: rotate(1.5deg); }
+.todo-item.indigo { background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); transform: rotate(-1.5deg); }
+.todo-item.purple { background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); transform: rotate(0.8deg); }
 
 /* 완료된 포스트잇 */
 .todo-item.completed {
